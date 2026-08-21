@@ -1,0 +1,27 @@
+{
+  "name": "akademija-ibn-usejmin",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "remoteUser": "node",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "runArgs": ["-p", "3000:3000", "-p", "9323:9323"],
+  "mounts": [
+    "source=${localEnv:HOME}/.codex,target=/home/node/.codex,type=bind,consistency=cached",
+    "source=akademija-ibn-usejmin-bun-cache,target=/home/node/.bun/install/cache,type=volume"
+  ],
+  "updateContentCommand": "bun install",
+  "postCreateCommand": "bun install",
+  "forwardPorts": [3000, 9323],
+  "customizations": {
+    "vscode": {
+      "extensions": ["oven-sh.bun-vscode", "biomejs.biome", "ms-playwright.playwright"]
+    }
+  },
+  "containerEnv": {
+    "PLAYWRIGHT_MCP_BROWSER": "chrome",
+    "PLAYWRIGHT_MCP_EXECUTABLE_PATH": "/usr/bin/google-chrome",
+    "PLAYWRIGHT_MCP_HEADLESS": "true"
+  }
+}

@@ -1,0 +1,33 @@
+drag-and-drop {
+  [draggable="true"] {
+    position: relative;
+    &::before {
+      display: none;
+      content: "";
+      position: absolute;
+      height: var(--s2);
+      width: 100%;
+      background: var(--clr-info-20);
+    }
+
+    &[data-drop-position] {
+      &::before {
+        display: unset;
+      }
+
+      --offset: -33%;
+
+      &[data-drop-position="beforebegin"] {
+        &::before {
+          top: var(--offset);
+        }
+      }
+
+      &[data-drop-position="afterend"] {
+        &::before {
+          bottom: var(--offset);
+        }
+      }
+    }
+  }
+}

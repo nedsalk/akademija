@@ -1,0 +1,22 @@
+.auth-template {
+  display: flex;
+  justify-content: center;
+  margin-block: 2rem;
+
+  & form {
+    flex-basis: 350px;
+    display: flex;
+    flex-direction: column;
+    > * + * {
+      margin-top: 1rem;
+    }
+  }
+}
+
+.auth-error {
+  background: #fee;
+  color: #c00;
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}

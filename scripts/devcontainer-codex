@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+WORKSPACE_ARG=(--workspace-folder "$ROOT_DIR")
+
+if ! command -v devcontainer >/dev/null 2>&1; then
+  echo "devcontainer CLI not found on PATH" >&2
+  exit 1
+fi
+
+echo "Ensuring devcontainer is up..."
+devcontainer up "${WORKSPACE_ARG[@]}" >/dev/null
+
+devcontainer exec "${WORKSPACE_ARG[@]}" install-codex || true
+
+echo "Preparing Codex config inside the container..."
+devcontainer exec "${WORKSPACE_ARG[@]}" bash -lc '
+set -euo pipefail
+mkdir -p /home/node/.codex
+if [ -f /home/node/.codex/config.devcontainer.toml ]; then
+  cp /home/node/.codex/config.devcontainer.toml /home/node/.codex/config.toml
+fi
+'
+
+if devcontainer exec "${WORKSPACE_ARG[@]}" bash -lc 'curl -fsS http://127.0.0.1:3000 >/dev/null 2>&1'; then
+  echo "Dev server already running on port 3000."
+else
+  echo "Starting dev server in the container..."
+  devcontainer exec "${WORKSPACE_ARG[@]}" bash -lc 'nohup bun run dev >/tmp/akademija-dev.log 2>&1 &' >/dev/null
+  echo "Dev server log: /tmp/akademija-dev.log"
+fi
+
+echo "Opening Codex inside the container..."
+exec devcontainer exec "${WORKSPACE_ARG[@]}" codex --dangerously-bypass-approvals-and-sandbox "$@"

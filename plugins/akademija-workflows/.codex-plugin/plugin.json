@@ -1,0 +1,18 @@
+{
+  "name": "akademija-workflows",
+  "version": "0.1.0",
+  "description": "Repo-local ATDD and domain-modeling skills for Akademija Ibn Usejmin.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Akademija Workflows",
+    "shortDescription": "Repo-local ATDD and domain-modeling skills",
+    "longDescription": "Keeps the repository's acceptance-testing and domain-modeling workflow versioned with the codebase.",
+    "developerName": "Akademija Ibn Usejmin",
+    "category": "Developer Tools",
+    "capabilities": ["Write"],
+    "defaultPrompt": [
+      "Use $atdd to add a new acceptance-tested feature.",
+      "Use $domain-modeling before implementing pure domain logic."
+    ]
+  }
+}

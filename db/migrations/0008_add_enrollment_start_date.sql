@@ -1,0 +1,1 @@
+ALTER TABLE `program_enrollment` ADD `start_date` text;

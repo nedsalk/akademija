@@ -1,0 +1,19 @@
+# deps
+node_modules/
+
+# database
+*.db
+db/*.sqlite
+db/*.sqlite-journal
+
+# playwright
+test-results/
+playwright-report/
+
+# build
+out/
+
+*.js
+
+.playwright-mcp/
+.mcp/

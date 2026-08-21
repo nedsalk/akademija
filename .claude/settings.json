@@ -1,0 +1,11 @@
+{
+  "enabledPlugins": {
+    "typescript-lsp@claude-plugins-official": true
+  },
+  "skills": [
+    {
+      "name": "atdd",
+      "path": ".claude/skills/atdd/SKILL.md"
+    }
+  ]
+}

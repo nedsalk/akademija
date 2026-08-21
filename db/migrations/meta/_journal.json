@@ -1,0 +1,139 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1768217865869,
+      "tag": "0000_broken_glorian",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1768401923795,
+      "tag": "0001_military_maelstrom",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1769767959433,
+      "tag": "0002_soft_invaders",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1769931172044,
+      "tag": "0003_low_storm",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1770124772489,
+      "tag": "0004_thankful_leper_queen",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1770805791305,
+      "tag": "0005_busy_black_queen",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1777975099739,
+      "tag": "0006_amusing_ben_grimm",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "6",
+      "when": 1778003233794,
+      "tag": "0007_program_enrollment",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "6",
+      "when": 1778054210405,
+      "tag": "0008_add_enrollment_start_date",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "6",
+      "when": 1778054210406,
+      "tag": "0009_shared_programs_refactor",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "6",
+      "when": 1778054210407,
+      "tag": "0010_course_textbook",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "6",
+      "when": 1778416000000,
+      "tag": "0011_lesson_completion",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "6",
+      "when": 1778430000000,
+      "tag": "0012_lesson_listen",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "6",
+      "when": 1778440000000,
+      "tag": "0013_lesson_answers",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "6",
+      "when": 1778450000000,
+      "tag": "0014_assessments",
+      "breakpoints": true
+    },
+    {
+      "idx": 15,
+      "version": "6",
+      "when": 1778460000000,
+      "tag": "0015_lesson_discussions",
+      "breakpoints": true
+    },
+    {
+      "idx": 16,
+      "version": "6",
+      "when": 1778470000000,
+      "tag": "0016_attendance",
+      "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "6",
+      "when": 1778480000000,
+      "tag": "0017_notifications",
+      "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "6",
+      "when": 1778490000000,
+      "tag": "0018_question_grid_answers",
+      "breakpoints": true
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+case "$(uname -m)" in
+  aarch64|arm64) codex_target="aarch64-unknown-linux-musl" ;;
+  x86_64|amd64) codex_target="x86_64-unknown-linux-musl" ;;
+  *) echo "Unsupported architecture: $(uname -m)" >&2; exit 1 ;;
+esac
+
+install_dir="${CODEX_INSTALL_DIR:-$HOME/.local/bin}"
+latest_version="$(curl -fsSIL -o /dev/null -w '%{url_effective}' https://github.com/openai/codex/releases/latest | sed 's#.*/##; s/^rust-v//; s/^v//')"
+current_version="$("$install_dir/codex" --version 2>/dev/null | awk '{ print $2 }' || true)"
+
+if [ "$current_version" = "$latest_version" ]; then
+  echo "Latest codex version ${current_version} already installed."
+  exit 0
+fi
+
+echo "Installing Codex ${latest_version} for ${codex_target}..."
+mkdir -p "$install_dir"
+tmp_dir="$(mktemp -d)"
+trap 'rm -rf "$tmp_dir"' EXIT
+
+curl -fL "https://github.com/openai/codex/releases/latest/download/codex-${codex_target}.tar.gz" \
+  | tar -xz -C "$tmp_dir"
+install -m 0755 "$tmp_dir/codex-${codex_target}" "$install_dir/codex"
+echo "Installed $("$install_dir/codex" --version)"
